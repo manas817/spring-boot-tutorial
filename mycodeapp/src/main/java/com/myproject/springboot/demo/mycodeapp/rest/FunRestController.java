@@ -10,4 +10,10 @@ public class FunRestController {
     public String sayHello() {
         return "Hello World!";
     }
+
+    // adding a new endpoint to test dev tools (auto-reload)
+    @GetMapping("/workout")
+    public String getDailyWorkout() {
+        return "today run gor 10km.";
+    }
 }
