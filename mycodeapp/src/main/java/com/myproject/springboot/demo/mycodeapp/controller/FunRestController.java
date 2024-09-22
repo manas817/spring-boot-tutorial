@@ -1,5 +1,7 @@
-package com.myproject.springboot.demo.mycodeapp.rest;
+package com.myproject.springboot.demo.mycodeapp.controller;
 
+import com.myproject.springboot.demo.mycodeapp.services.Coach;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,13 @@ public class FunRestController {
     @Value("${team.name}")
     private String teamName;
 
+    private Coach mycoach;
+
+    @Autowired
+    public FunRestController(Coach theCoach){
+        mycoach = theCoach;
+    }
+
     @GetMapping("/teaminfo")
     public String getTeamDetails(){
         return "COACH NAME: " + coachName + " TEAM NAME: " + teamName;
@@ -25,9 +34,10 @@ public class FunRestController {
         return "Hello World!";
     }
 
-    // adding a new endpoint to test dev tools (auto-reload)
     @GetMapping("/workout")
-    public String getDailyWorkout() {
-        return "today run gor 10km.";
+    public String workout() {
+        return mycoach.getDailyWorkout();
     }
+
+
 }
