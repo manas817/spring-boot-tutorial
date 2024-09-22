@@ -1,4 +1,4 @@
-package com.myproject.springboot.demo.mycodeapp.services;
+package com.myproject.springboot.demo.util;
 
 import org.springframework.stereotype.Component;
 
