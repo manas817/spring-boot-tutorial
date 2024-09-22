@@ -1,6 +1,6 @@
 package com.myproject.springboot.demo.mycodeapp.controller;
 
-import com.myproject.springboot.demo.util.Coach;
+import com.myproject.springboot.demo.mycodeapp.services.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class FunRestController {
     private Coach mycoach;
 
     @Autowired
-    public FunRestController(Coach theCoach){
+    public void setCoach(Coach theCoach){
         mycoach = theCoach;
     }
 
