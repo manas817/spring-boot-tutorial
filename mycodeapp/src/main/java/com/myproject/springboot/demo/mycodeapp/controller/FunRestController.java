@@ -18,14 +18,11 @@ public class FunRestController {
     private String teamName;
 
     private Coach mycoach;
-    private Coach anothercoach;
 
     @Autowired
-    public FunRestController(@Qualifier("cricketCoach") Coach theCoach,
-                             @Qualifier("cricketCoach") Coach anotherCoach){
+    public FunRestController(@Qualifier("cricketCoach") Coach theCoach){
         System.out.println("In Constructor: " + getClass().getSimpleName());
         mycoach = theCoach;
-        anothercoach = anotherCoach;
     }
 
     @GetMapping("/teaminfo")
