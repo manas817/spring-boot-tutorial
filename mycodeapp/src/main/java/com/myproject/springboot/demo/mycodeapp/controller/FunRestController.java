@@ -20,7 +20,7 @@ public class FunRestController {
     private Coach mycoach;
 
     @Autowired
-    public FunRestController(@Qualifier("cricketCoach") Coach theCoach){
+    public FunRestController(@Qualifier("swimCoach") Coach theCoach){
         System.out.println("In Constructor: " + getClass().getSimpleName());
         mycoach = theCoach;
     }
