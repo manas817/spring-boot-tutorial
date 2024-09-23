@@ -2,7 +2,6 @@ package com.myproject.springboot.demo.mycodeapp.controller;
 
 import com.myproject.springboot.demo.mycodeapp.services.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +19,7 @@ public class FunRestController {
     private Coach mycoach;
 
     @Autowired
-    public FunRestController(@Qualifier("tennisCoach") Coach theCoach){
+    public FunRestController(Coach theCoach){
         mycoach = theCoach;
     }
 
