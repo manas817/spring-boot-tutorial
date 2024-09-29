@@ -23,8 +23,21 @@ public class MycodeappApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			// createStudent(studentDAO);
-			queryForStudents(studentDAO);
+			// readStudents(studentDAO);
+			// queryForStudents(studentDAO);
+			queryStudentsByLastName(studentDAO);
 		};
+	}
+
+	private void queryStudentsByLastName(StudentDAO studentDAO) {
+		// get list for students by last name
+		List<Student> studentsList = studentDAO.findByLastName("Brooks");
+
+		// Display the student list
+		for(Student s : studentsList){
+			System.out.println(s);
+		}
+
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
