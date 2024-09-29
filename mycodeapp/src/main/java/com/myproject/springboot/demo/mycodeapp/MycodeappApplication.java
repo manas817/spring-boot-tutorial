@@ -20,8 +20,28 @@ public class MycodeappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			createStudent(studentDAO);
+			// createStudent(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// create a student object
+		Student mystudent = new Student("Harry", "Brooks", "h.brooks@yahoo.com");
+
+		// save the student object
+		studentDAO.save(mystudent);
+
+		//display the id of the saved student
+		int theId = mystudent.getId();
+		System.out.println("the student id is: " + theId);
+
+		//retrieve the student based on primary key: id
+		Student thestudent = studentDAO.findById(theId);
+
+		// Display the retrieved student
+		System.out.println("Displaying the read student: " + thestudent);
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
