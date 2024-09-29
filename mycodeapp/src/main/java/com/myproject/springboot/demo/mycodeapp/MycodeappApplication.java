@@ -22,12 +22,12 @@ public class MycodeappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			// createStudent(studentDAO);
+			createStudent(studentDAO);
 			// readStudents(studentDAO);
 			// queryForStudents(studentDAO);
 			// queryStudentsByLastName(studentDAO);
 			// updateStudent(studentDAO);
-			deleteStudent(studentDAO);
+			//deleteStudent(studentDAO);
 		};
 	}
 
@@ -100,11 +100,13 @@ public class MycodeappApplication {
 		System.out.println("creating the student object...");
 		Student student = new Student("Manas", "patra", "patramanas817@gmail.com");
 		Student student1 = new Student("Alice", "parker", "a.parker@hotmail.com");
+		Student student2 = new Student("Peter", "hanks", "h.peter@yahoo.com");
 
 		// save the student object
 		System.out.println("saving the student object");
 		studentDAO.save(student);
 		studentDAO.save(student1);
+		studentDAO.save(student2);
 
 		// display the id of the student object
 		System.out.println("displaying the id of the student object.." + student.getId());
