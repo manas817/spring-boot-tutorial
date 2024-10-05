@@ -1,6 +1,5 @@
 package com.springboot.myapp.controllers;
 
-import com.springboot.myapp.dao.EmployeeDAO;
 import com.springboot.myapp.entity.Employee;
 import com.springboot.myapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
