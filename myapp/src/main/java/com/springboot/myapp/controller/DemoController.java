@@ -15,7 +15,7 @@ public class DemoController {
     public String showform() {
         return "htmlform";
     }
-    @GetMapping("/processformv3")
+    @PostMapping("/processformv3")
     public String processformv3(@RequestParam("studentName") String theName, Model theModel) {
 
         // convert the name to uppercase
