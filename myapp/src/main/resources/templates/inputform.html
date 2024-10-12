@@ -15,12 +15,7 @@
     <br><br>
     <label for="drop">Please select your country of origin: </label>
     <select th:field="*{country}" id="drop">
-        <option value="India">India</option>
-        <option value="China">China</option>
-        <option value="United States of America">United States of America</option>
-        <option value="United Kingdom">United Kingdom</option>
-        <option value="Canada">Canada</option>
-        <option value="Australia">Australia</option>
+        <option th:each="tempCountry : ${allCountries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
     </select>
     <input type="submit" value="Submit">
 </form>

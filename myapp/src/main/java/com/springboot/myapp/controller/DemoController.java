@@ -1,19 +1,26 @@
 package com.springboot.myapp.controller;
 
 import com.springboot.myapp.entity.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Controller
 @RequestMapping("/form")
 public class DemoController {
 
+    @Value("${countries}")
+    List<String> Mycountries;
+
     @GetMapping("showform")
     public String showForm(Model theModel) {
         Student theStudent = new Student();
         theModel.addAttribute("student", theStudent);
+        theModel.addAttribute("allCountries", Mycountries);
         return "inputform";
     }
 
