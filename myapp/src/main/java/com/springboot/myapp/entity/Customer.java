@@ -1,9 +1,6 @@
 package com.springboot.myapp.entity;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class Customer {
     private String firstName;
@@ -15,6 +12,9 @@ public class Customer {
     @Min(value = 0, message = "value must be greater than zero")
     @Max(value = 10, message = "value must be less than 10")
     private String freePasses;
+
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message="only 5 chars/digits")
+    private String postalCode;
 
     public String getFirstName() {
         return firstName;
@@ -38,5 +38,13 @@ public class Customer {
 
     public void setFreePasses(String freePasses) {
         this.freePasses = freePasses;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }
