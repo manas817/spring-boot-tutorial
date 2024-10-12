@@ -16,11 +16,15 @@ public class DemoController {
     @Value("${countries}")
     List<String> Mycountries;
 
+    @Value("${languages}")
+    List<String> Mylanguages;
+
     @GetMapping("showform")
     public String showForm(Model theModel) {
         Student theStudent = new Student();
         theModel.addAttribute("student", theStudent);
         theModel.addAttribute("allCountries", Mycountries);
+        theModel.addAttribute("allLanguages", Mylanguages);
         return "inputform";
     }
 
