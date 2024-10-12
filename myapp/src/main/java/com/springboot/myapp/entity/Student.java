@@ -1,11 +1,13 @@
 package com.springboot.myapp.entity;
 
+import java.util.List;
+
 public class Student {
     private String firstName;
     private String lastName;
     private String country;
     private String favouriteLanguage;
-    private String operatingSystem;
+    private List<String> operatingSystems;
 
     public Student() {
 
@@ -43,11 +45,11 @@ public class Student {
         this.favouriteLanguage = favouriteLanguage;
     }
 
-    public String getOperatingSystem() {
-        return operatingSystem;
+    public List<String> getOperatingSystems() {
+        return operatingSystems;
     }
 
-    public void setOperatingSystem(String operatingSystem) {
-        this.operatingSystem = operatingSystem;
+    public void setOperatingSystems(List<String> operatingSystems) {
+        this.operatingSystems = operatingSystems;
     }
 }

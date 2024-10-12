@@ -12,6 +12,9 @@
     <br><br>
     Your Favourite Programming Language is: <span th:text="${student.favouriteLanguage}"></span>
     <br><br>
-    Your Favourite Operating System is: <span th:text="${student.operatingSystem}"></span>
+    Your Favourite Operating System is:
+    <ul>
+        <li th:each="os : ${student.operatingSystems}" th:text="${os}"></li>
+    </ul>
 </body>
 </html>

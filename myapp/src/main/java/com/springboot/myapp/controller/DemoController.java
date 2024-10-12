@@ -19,12 +19,16 @@ public class DemoController {
     @Value("${languages}")
     List<String> Mylanguages;
 
+    @Value("${systems}")
+    List<String> OperatingSys;
+
     @GetMapping("showform")
     public String showForm(Model theModel) {
         Student theStudent = new Student();
         theModel.addAttribute("student", theStudent);
         theModel.addAttribute("allCountries", Mycountries);
         theModel.addAttribute("allLanguages", Mylanguages);
+        theModel.addAttribute("allOS",OperatingSys);
         return "inputform";
     }
 
