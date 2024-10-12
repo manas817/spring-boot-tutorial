@@ -13,6 +13,15 @@
     <label for="lname">Last Name: </label>
     <input type="text" th:field="*{lastName}" id="lname"/>
     <br><br>
+    <label for="drop">Please select your country of origin: </label>
+    <select th:field="*{country}" id="drop">
+        <option value="India">India</option>
+        <option value="China">China</option>
+        <option value="United States of America">United States of America</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+    </select>
     <input type="submit" value="Submit">
 </form>
 
