@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -18,6 +20,18 @@ public class EmployeeController {
     @Autowired
     public EmployeeController(EmployeeService theEmployeeService){
         employeeService = theEmployeeService;
+    }
+
+    @GetMapping("/employeeAddForm")
+    public String employeeForm(Model theModel){
+        theModel.addAttribute("employee", new Employee());
+        return "employee-form";
+    }
+
+    @PostMapping("/save")
+    public String saveEmployee(@ModelAttribute("employee") Employee theEmployee){
+        employeeService.save(theEmployee);
+        return "redirect:/employees/list";
     }
 
     @GetMapping("/list")
