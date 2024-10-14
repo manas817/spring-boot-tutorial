@@ -34,5 +34,11 @@ public class DemoSecurityConfig {
         return new InMemoryUserDetailsManager(john, mary, susan);
     }
 
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(configurer -> configurer.anyRequest().authenticated())
+                .formLogin(form -> form.loginPage("/showMyLoginPage").loginProcessingUrl("/authenticateTheUser").permitAll());
 
+        return http.build();
+    }
 }
