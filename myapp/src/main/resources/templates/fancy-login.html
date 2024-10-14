@@ -32,7 +32,13 @@
                                                 <div class="alert alert-danger col-xs-offset-1 col-xs-10">
                                                     Invalid username and password.
                                                 </div>
+                                            </div>
+                                            <!-- Check for logout error -->
+                                            <div th:if="${param.logout}">
 
+                                                <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                                                    you have been logged out.
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
