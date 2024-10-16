@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
@@ -17,13 +17,18 @@
      Role(s): <span sec:authentication="principal.authorities"></span>
  </p>
 
- <hr>
+
 <!--Add a link point to /leaders... this is for managers -->
- <a th:href="@{/leaders}">Leadership meeting</a> (only of managers and admins)
+ <div sec:authorize="hasRole('MANAGER')">
+     <a th:href="@{/leaders}">Leadership meeting</a> (only of managers and admins)
+ </div>
+
  <hr>
  <!--Add a link point to /systems... this is for admins -->
- <a th:href="@{/systems}">IT Systems Meeting</a> (only for Admins)
- <hr>
+ <div sec:authorize="hasRole('ADMIN')">
+     <a th:href="@{/systems}">IT Systems Meeting</a> (only for Admins)
+ </div>
+ <br>
  <form action="#" th:action="@{/logout}" method="post">
      <input type="submit" value="logout">
  </form>
