@@ -19,7 +19,7 @@ public class MyappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			 //createInstructor(appDAO);
+			 // createInstructor(appDAO);
 			// findInstructor(appDAO);
 			// deleteInstructor(appDAO);
 			//findInstructorDetail(appDAO);
@@ -29,7 +29,7 @@ public class MyappApplication {
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
-		int theId = 3;
+		int theId = 4;
 		appDAO.deleteInstructorDetailById(theId);
 		System.out.println("Completed Delete InstructorDetail!");
 	}
