@@ -8,4 +8,6 @@ public interface AppDAO {
     public void save(Instructor instructor);
     Instructor findInstructorById(int id);
     void deleteByInstructorId(int id);
+    InstructorDetail findInstructorDetailById(int id);
+    void deleteInstructorDetailById(int id);
 }

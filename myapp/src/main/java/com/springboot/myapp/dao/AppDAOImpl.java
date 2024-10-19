@@ -1,6 +1,7 @@
 package com.springboot.myapp.dao;
 
 import com.springboot.myapp.entity.Instructor;
+import com.springboot.myapp.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,5 +32,17 @@ public class AppDAOImpl implements AppDAO {
     public void deleteByInstructorId(int id) {
         Instructor theInstructor = entityManager.find(Instructor.class, id);
         entityManager.remove(theInstructor);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int id) {
+        return entityManager.find(InstructorDetail.class, id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteInstructorDetailById(int id) {
+        InstructorDetail theInstructorDetail = entityManager.find(InstructorDetail.class, id);
+        entityManager.remove(theInstructorDetail);
     }
 }

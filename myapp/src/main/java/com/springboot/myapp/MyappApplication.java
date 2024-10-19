@@ -19,10 +19,27 @@ public class MyappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			// createInstructor(appDAO);
+			 //createInstructor(appDAO);
 			// findInstructor(appDAO);
-			deleteInstructor(appDAO);
+			// deleteInstructor(appDAO);
+			//findInstructorDetail(appDAO);
+			deleteInstructorDetail(appDAO);
+
 		};
+	}
+
+	private void deleteInstructorDetail(AppDAO appDAO) {
+		int theId = 3;
+		appDAO.deleteInstructorDetailById(theId);
+		System.out.println("Completed Delete InstructorDetail!");
+	}
+
+	private void findInstructorDetail(AppDAO appDAO) {
+		int theId = 3;
+		System.out.println("finding InstructorDetail id: " + theId);
+		InstructorDetail theInstructorDetail = appDAO.findInstructorDetailById(theId);
+		System.out.println("printing instructorDetail: " + theInstructorDetail);
+		System.out.println("printing associated Instructor: " + theInstructorDetail.getInstructor());
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
