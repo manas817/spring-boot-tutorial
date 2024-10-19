@@ -1,6 +1,7 @@
 package com.springboot.myapp;
 
 import com.springboot.myapp.dao.AppDAO;
+import com.springboot.myapp.entity.Course;
 import com.springboot.myapp.entity.Instructor;
 import com.springboot.myapp.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -23,9 +24,37 @@ public class MyappApplication {
 			// findInstructor(appDAO);
 			// deleteInstructor(appDAO);
 			//findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+			//deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		// create instructor object
+		Instructor theinstructor = new Instructor("Steve", "Jobs", "s.jobs@apple.com");
+
+		// create instructor details object
+		InstructorDetail theinstructorDetail = new InstructorDetail("http://youtube/appleVideos", "Calligraphy");
+
+		// associate instructor details
+		theinstructor.setInstructorDetail(theinstructorDetail);
+
+		// create courses
+		Course tempCourse1 = new Course("Calligraphy - A beginners Guide");
+		Course tempCourse2 = new Course("Electronics - Advance");
+
+		//associate the courses
+		theinstructor.add(tempCourse1);
+		theinstructor.add(tempCourse2);
+
+		System.out.println("Saving....." + theinstructor);
+		System.out.println("The Courses are: " + theinstructor.getCourses());
+		// NOTE: this will also save the courses
+		// due to cascadeType.persist
+		// save the instructor object
+		appDAO.save(theinstructor);
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
